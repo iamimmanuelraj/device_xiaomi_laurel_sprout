@@ -455,6 +455,16 @@ PRODUCT_SOONG_NAMESPACES += \
 
 QCOM_SOONG_NAMESPACE := $(LOCAL_PATH)
 
+# Secure Element
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0.vendor \
+    android.hardware.secure_element@1.1.vendor \
+    android.hardware.secure_element@1.2.vendor
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    SystemUI
+
 # Tethering
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
