@@ -76,3 +76,5 @@ ro.max.fling_velocity=20000
 #  Keyguard
 persist.wm.enable_remote_keyguard_animation=0
 
+# Disable vsync for cpu rendered apps
+debug.cpurend.vsync=false
