@@ -35,13 +35,14 @@
 
     <!-- Smart Charging -->
     <bool name="config_supportSmartCharging">true</bool>
-<<<<<<< HEAD
-=======
 
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
 
-    <!-- Smart Charging -->
-    <bool name="config_supportSmartCharging">true</bool>
->>>>>>> 7a96fddd4 (laurel_sprout:overlay: Add config and nodes for Smart charging)
+    <!-- Battery health -->
+    <string name="config_batteryChargeCycles">/sys/class/power_supply/battery/cycle_count</string>
+    <string name="config_batteryDesignCapacity">/sys/class/power_supply/battery/charge_full</string>
+    <string name="config_batteryCalculatedCapacity">/sys/class/power_supply/battery/charge_counter</string>
+    <bool name="config_supportBatteryHealth">true</bool>
+
 </resources>
