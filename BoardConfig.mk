@@ -208,3 +208,7 @@ TARGET_USES_FOD_ZPOS := true
 
 # Inherit the proprietary files
 include vendor/xiaomi/laurel_sprout/BoardConfigVendor.mk
+
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
