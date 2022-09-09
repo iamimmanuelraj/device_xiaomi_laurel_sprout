@@ -17,7 +17,25 @@ LOCAL_OVERRIDES_PACKAGES := \
 	SprintHM \
 	USCCDM \
 	VZWAPNLib \
-	VzwOmaTriger
+	VzwOmaTriger \
+        PixelBuds \
+        PixelLiveWallpaperPrebuilt \
+        RecorderPrebuilt \
+        SafetyHubPrebuilt \
+        SCONE \
+        ScribePrebuilt \
+        Showcase \
+        SoundAmplifierPrebuilt \
+        SprintDM \
+        SprintHM \
+        Tycho \
+        USCCDM \
+        Via \
+        Videos \
+        VZWAPNLib \
+        VzwOmaTrigger \
+        YouTube \
+        YouTubeMusicPrebuilt \
 
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
