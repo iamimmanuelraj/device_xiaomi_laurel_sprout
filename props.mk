@@ -159,6 +159,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_client_composition_cache=1 \
     debug.sdm.support_writeback=0 \
     debug.sf.early_app_phase_offset_ns=1500000 \
     debug.sf.early_gl_app_phase_offset_ns=15000000 \
