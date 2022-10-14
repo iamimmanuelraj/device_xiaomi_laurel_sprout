@@ -3,3 +3,7 @@ ro.lmk.filecache_min_kb=153600
 ro.lmk.kill_timeout_ms=50
 ro.lmk.stall_limit_critical=40
 
+# Watchdog
+framework_watchdog.fatal_window.second=600
+framework_watchdog.fatal_count=3
+
