@@ -16,6 +16,7 @@ zygote.critical_window.minute=10
 # DRM
 media.mediadrmservice.enable=true
 
+
 # Radio
 persist.vendor.radio.add_power_save=1
 
@@ -27,6 +28,7 @@ persist.vendor.audio.fluence.voicerec=true
 debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
 renderthread.skia.reduceopstasksplitting=true
+debug.sf.auto_latch_unsignaled=1
 
 # Fling
 ro.min.fling_velocity=160 
