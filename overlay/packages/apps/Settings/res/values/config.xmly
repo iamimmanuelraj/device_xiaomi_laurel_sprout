@@ -64,4 +64,7 @@
          should also be hidden if intended to be permanent. -->
     <item name="config_appTransitionAnimationDurationScaleDefault" format="float" type="dimen">1.1</item>
 
+    <!-- Speed up the animations -->
+    <fraction name="def_window_transition_scale">25%</fraction>
+
 </resources>
