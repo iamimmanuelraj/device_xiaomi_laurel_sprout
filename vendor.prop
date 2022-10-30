@@ -23,6 +23,7 @@ persist.vendor.radio.add_power_save=1
 # Audio
 persist.vendor.audio.fluence.audiorec=true
 persist.vendor.audio.fluence.voicerec=true
+vendor.audio.feature.compr_voip.enable=true
 
 # Graphics
 debug.hwui.renderer=skiagl
