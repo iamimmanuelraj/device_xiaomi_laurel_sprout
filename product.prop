@@ -27,3 +27,11 @@ ro.surface_flinger.display_update_imminent_timeout_ms=50
 vendor.hwc.dpp.downscale=2
 ro.surface_flinger.support_kernel_idle_timer=true
 ro.surface_flinger.ignore_hdr_camera_layers=true
+
+# Power-saving props
+ro.vendor.use_data_netmgrd=true
+ro.vold.umsdirtyratio=20
+ro.ril.disable.power.collapse=0
+power.saving.mode=1
+pm.sleep_mode=1
+
