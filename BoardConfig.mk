@@ -34,7 +34,10 @@ AB_OTA_PARTITIONS += \
     dtbo \
     system \
     vbmeta \
-    vendor
+    vendor \
+    product \
+    system_ext \
+    odm
 
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
@@ -124,7 +127,7 @@ BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0x4a90000 androidboot.hardware=qcom msm_rtb.filter=0x237 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=4e00000.dwc3
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_CMDLINE += loop.max_part=16
-BOARD_KERNEL_CMDLINE += kpti=off
+BOARD_KERNEL_CMDLINE += kpti=off androidboot.boot_devices=soc/4804000.ufshc
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
@@ -149,24 +152,25 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
 endif
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware_mnt:/firmware \
     /vendor/bt_firmware:/bt_firmware
-
-TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 BOARD_METADATAIMAGE_PARTITION_SIZE := 16777216
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
-BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
-
 BOARD_USES_METADATA_PARTITION := true
+BOARD_SUPER_PARTITION_GROUPS := laurel_dynamic_partitions
+BOARD_LAUREL_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product system_ext odm
+$(foreach p, $(call to-upper, $(BOARD_LAUREL_DYNAMIC_PARTITIONS_PARTITION_LIST)), \
+    $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4) \
+    $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
+BOARD_SUPER_PARTITION_SIZE := 4294967296
+BOARD_LAUREL_DYNAMIC_PARTITIONS_SIZE := 4290772992
+BOARD_SUPER_PARTITION_METADATA_DEVICE := system
+BOARD_SUPER_PARTITION_BLOCK_DEVICES := system vendor
+BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472
+BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1073741824
 
 # Platform
 TARGET_BOARD_PLATFORM := trinket
